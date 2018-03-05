@@ -1,0 +1,9 @@
+hi {
+    color: red;
+}
+
+body {
+    background: skyblue;
+    background: linear-gradient(white,skyblue);
+
+}
