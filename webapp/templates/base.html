@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}SVF Balance Fit {% endblock %}</title>
@@ -17,6 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
     {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/main/footer.css' %}"/>
 </head>
 <body>
 
@@ -75,5 +76,13 @@
 {% block body %}
 {% endblock %}
 
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Footer</span>
+            <a href="#">Impressum</a>
+            <span>TODO</span>
+        </div>
+    </footer>
 </body>
 </html>

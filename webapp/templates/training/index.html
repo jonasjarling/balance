@@ -9,11 +9,22 @@ SVFBalance | Training
 {% block body %}
 <h1> this is Training!!11</h1>
 
-    <ul>
+    {% for plan in context %}
+    {%  for exercise in plan %}
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ image }}" alt="alt Text">
+        <div class="card-body">
+            <h5 class="card-title">{{ name }}</h5>
+            <p class="card-text">{{ information }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            {% for attributes in excercise %}
+            <li class="list-group-item">{{ anntribute }} : {{ value }}</li>
+            {% endfor %}
+            <li class="list-group-item"><button type="button" class="btn btn-secodary">Abgeschlossen</button></li>
+        </ul>
+    </div>
+    {%  endfor %}
+    {%  endfor %}
 
-
-
-        <li>{{ plan }}</li>
-
-    </ul>
 {% endblock %}
