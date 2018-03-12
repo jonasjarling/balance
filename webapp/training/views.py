@@ -59,4 +59,4 @@ def plan(request, plan_id):
             },
         },
     }
-    return HttpResponse(template.render(request, context))
+    return HttpResponse(template.render(context)) #request
