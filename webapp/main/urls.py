@@ -5,7 +5,7 @@ from django.conf.urls import url, include
 from . import views
 
 urlpatterns = (
-    path('login/', views.login, name='login'),
+    url('^login/$', views.UserFormView.as_view(), name='login'),
     path('news/', views.news, name='news'),
     url(r'^$', views.index, name='index'),
 )
