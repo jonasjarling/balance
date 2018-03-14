@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #added apps
-    'django.contrib.sites',
-    'django.contrib.redirects',
+    #'django.contrib.sites',
+    #,
     #own apps
     'api.apps.ApiConfig',
     'main.apps.MainConfig',
@@ -58,7 +58,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #added middleware
-    'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
+    #'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
 ]
 
 ROOT_URLCONF = 'webapp.urls'
