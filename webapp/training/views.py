@@ -4,7 +4,7 @@ from django.template import loader
 
 def index(request):
 
-    template = loader.get_template('training/index.html')
+    template = loader.get_template('training/training.html')
     context = {
         "plan": {
             "id": "1",

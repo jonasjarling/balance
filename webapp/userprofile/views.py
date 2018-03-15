@@ -6,4 +6,4 @@ def userprofile(request):
     context = {
         'test': '123'
     }
-    return render(request, 'userprofile/index.html', context)
+    return render(request, 'userprofile/profile.html', context)

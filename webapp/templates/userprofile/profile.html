@@ -1,0 +1,68 @@
+{% extends 'main/baseDoubleNav.html' %}
+{%  load static %}
+{% block title %}
+SVFBalance | Profile
+{% endblock %}
+
+{%  block profileActive %} active {%  endblock %}
+
+{% block body %}
+<br>
+    <div class="container">
+    <span style="text-align: center"><h3>Vorname Nachname</h3></span>
+        <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-2" align="center">
+                <img src="{% static 'images/profile.jpg' %}" width="100px" height="100px"><br>
+                <button class="button btn-primary"><i class="fas fa-envelope"></i></button>
+                <button class="button btn-warning"><i class="fas fa-edit"></i></button>
+                <button class="button btn-danger"><i class="fas fa-trash-alt"></i></button>
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-10">
+                <table class="table table-user-information">
+                    <tr>
+                        <td>Mitgliedsnummer: </td>
+                        <td><span class="border-right">&nbsp</span></td>
+                        <td>Mitglied seit:</td>
+                    </tr>
+                    <tr>
+                        <td>Geburtstag: </td>
+                        <td><span class="border-right">&nbsp</span></td>
+                        <td>Adresse:</td>
+                    </tr>
+                    <tr>
+                        <td>Email : </td>
+                        <td><span class="border-right">&nbsp</span></td>
+                        <td>Telefonnummer:</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <h3 style="text-align: center">Körperdaten</h3>
+            <table class="table">
+                <tr>
+                    <td>Geschlecht: </td>
+                    <td><span class="border-right">&nbsp</span></td>
+                    <td>Körpergröße: </td>
+                    <td><span class="border-right">&nbsp</span></td>
+                    <td>Körpergröße: </td>
+                </tr>
+                <tr>
+                    <td>Geschlecht: </td>
+                    <td><span class="border-right">&nbsp</span></td>
+                    <td>Körpergröße: </td>
+                    <td><span class="border-right">&nbsp</span></td>
+                    <td>Körpergröße: </td>
+                </tr>
+                <tr>
+                    <td>Geschlecht: </td>
+                    <td><span class="border-right">&nbsp</span></td>
+                    <td>Körpergröße: </td>
+                    <td><span class="border-right">&nbsp</span></td>
+                    <td>Körpergröße: </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
