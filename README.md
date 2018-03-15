@@ -26,4 +26,5 @@
   <h3>Weitere Tutorials:</h3>
 <ul>
  <li>Responsive Webdesign   https://www.youtube.com/watch?v=yWgl3xXVlHI&list=PL6gx4Cwl9DGBaTsb1nse1UU48d_q7glGT</li>
+  <li>https://trello.com/b/DZctVxFy/studienarbeit</li>
 </ul>
