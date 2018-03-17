@@ -1,5 +1,5 @@
 {% extends 'main/baseDoubleNav.html' %}
-
+{%  load static %}
 {% block title %}
 SVFBalance | Training
 {% endblock %}
@@ -7,24 +7,29 @@ SVFBalance | Training
 {%  block trainingActive %} active {%  endblock %}
 
 {% block body %}
-<h1> this is Training!!11</h1>
 
-    {% for plan in context %}
-    {%  for exercise in plan %}
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{ image }}" alt="alt Text">
-        <div class="card-body">
-            <h5 class="card-title">{{ name }}</h5>
-            <p class="card-text">{{ information }}</p>
+    <div class="container">
+        <div class="row">
+            {%  for exercise_key, exercise_value in context.items %}
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="#" alt="alt Text">
+                <div class="card-body">
+                    <h5 class="card-title">{{ exercise_key }}</h5>
+                    <p class="card-text">{{ information }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for key, value in exercise_value.items %}
+                        <li class="list-group-item">{{ key }} : {{ value }}</li>
+                    {% endfor %}
+                    <li class="list-group-item"><button type="button" class="btn btn-secodary">Abgeschlossen</button></li>
+                </ul>
+                </div>
+            {%  endfor %}
         </div>
-        <ul class="list-group list-group-flush">
-            {% for attributes in excercise %}
-            <li class="list-group-item">{{ anntribute }} : {{ value }}</li>
-            {% endfor %}
-            <li class="list-group-item"><button type="button" class="btn btn-secodary">Abgeschlossen</button></li>
-        </ul>
+        <div class="row">
+            <div class="col" align="center">
+            <button class="btn btn-info">Training abgeschlossen</button>
+            </div>
+        </div>
     </div>
-    {%  endfor %}
-    {%  endfor %}
-
 {% endblock %}
