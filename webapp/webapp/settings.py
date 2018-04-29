@@ -92,8 +92,7 @@ DATABASES = {
         'USER':'studienarbeit',
         'PASSWORD':'admin',
         'HOST':'localhost',
-        # TODO create new DB with origianl protnumber 3306
-        'PORT':'3307',
+        'PORT':'3306',
     }
 }
 
