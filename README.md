@@ -6,7 +6,8 @@
   <li>PyCharme                https://www.jetbrains.com/pycharm/</li>
   <li>Git                     https://git-scm.com/download/win</li>
   <li>Django                  pip install django</li>
-  <li>Bootstrap4             pip install django-bootstrap4</li>
+  <li>Bootstrap4              pip install django-bootstrap4</li>
+  <li>MySQL Client            pip install Django mysqlclient</li>
 </ul>  
  
 
