@@ -48,12 +48,6 @@ def news(request):
     return render(request, 'main/news.html', context)
 
 
-@login_required(login_url='/login/')
-def profile(request):
-    context = {
-        'test': '123'
-    }
-    return render(request, 'main/profile.html', context)
 
 class UserFormView(View):
     form_class = UserForm
