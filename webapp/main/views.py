@@ -38,7 +38,7 @@ def login(request):
 def logout_view(request):
     logout(request)
     # Redirect to a success page.
-    return redirect('%s?next=%s' % (index(request), request.path))
+    return render(request, 'main/index.html')
 
 
 def news(request):
