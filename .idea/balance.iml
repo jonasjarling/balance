@@ -18,6 +18,9 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 3.6 (balance)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="VerteilteSysteme" />
+    <orderEntry type="module" module-name="VerteilteSysteme" />
+    <orderEntry type="module" module-name="VerteilteSysteme" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
