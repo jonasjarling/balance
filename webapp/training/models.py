@@ -30,6 +30,7 @@ class Workout(models.Model):
     def __str__(self):
         return self.name
 
+
 class Routine(models.Model):
     name = models.CharField(max_length=100)
     exercise = models.ManyToManyField(Exercise)

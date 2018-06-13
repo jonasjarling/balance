@@ -16,6 +16,7 @@ class Profile(models.Model):
     sex = models.CharField(max_length=10)
     height = models.IntegerField
     weight = models.IntegerField
+    goal = models.CharField(max_length=500)
 
     def __str__(self):
         return self.user.username
