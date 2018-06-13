@@ -19,6 +19,7 @@
   <li>Bootstrap (Design)      https://www.youtube.com/playlist?list=PL6gx4Cwl9DGBlmzzFcLgDhKTTfNLfX1IK</li>
   <li>Font Awesome            https://fontawesome.com/</li>
   <li>Maria DB               </li>
+  <li>Charts.js               http://www.chartjs.org/docs/latest/</li>
 </ul>
 
 
