@@ -3,5 +3,20 @@
 {% block newsActive %}active{% endblock %}
 
 {% block body %}
-news
+    <div class="container">
+            <br>
+            {% for news_heading, news_text in context.items %}
+                <div class="jumbotron" style="padding: 1rem 1rem">
+                <div class="media">
+                <img class="mr-3" src="#" alt="newsimage">
+                <div class="media-body">
+                    <span style="color: darkgrey">Date</span>
+                    <h5 class="mt-0">{{ news_heading }}</h5>
+                    {{ news_text }}
+                </div>
+                </div>
+                </div>
+            {% endfor %}
+
+    </div>
 {% endblock %}
