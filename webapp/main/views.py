@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth import authenticate, login
+from django.shortcuts import render, get_object_or_404, redirect, resolve_url
+from django.contrib.auth import authenticate, login, logout
 from .forms import UserForm
 from django.views.generic import View
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -17,29 +18,42 @@ def index(request):
 
 
 def login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        # Redirect to a success page.
+        return redirect('%s?next=%s' % (profile(request), request.path))
+    else:
+        # Return an 'invalid login' error message.
+        return redirect('%s?next=%s' % (login(request), request.path))
 
 
-    context = {
+    #context = {
 
-    }
-    return render(request,'main/login.html', context)
+    #}
+    #return render(request,'main/login.html', context)
 
-
+def logout_view(request):
+    logout(request)
+    # Redirect to a success page.
+    return render(request, 'main/index.html')
 
 
 def news(request):
     context = {
-        'test': '123'
-    }
-    return render(request, 'main/news.html', context)
+        'Hallo Welt':'Hure123',
+        'Guck nicht!': 'Und iss weiter! ',
+        'Guck nicht': 'Und iss weiter! ',
+        'Guck nicht!!': 'Und iss weiter!'
+                        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. ',
+        'Guck nicht!!!': 'Und iss weiter! ',
+        }
+
+    return render(request, 'main/news.html', {"context":context})
 
 
-
-def profile(request):
-    context = {
-        'test': '123'
-    }
-    return render(request, 'main/profile.html', context)
 
 class UserFormView(View):
     form_class = UserForm

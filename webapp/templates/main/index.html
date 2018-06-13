@@ -8,20 +8,21 @@ SVFBalance | Startseite
 
 
 {% block body %}
-    {% comment %}    if user authenticated           {%  endcomment %}
-
-
-    {%  comment %} if not authenticated {%  endcomment %}
-
-    <div class="jumbotron">
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+    {% else %}
+        <div class="jumbotron">
         <h1 class="display-4">Herzlich Willkommen!</h1>
         <p class="lead">Irgendein Text</p>
         <hr class="my-4">
         <p> Bitte Logge dich ein</p>
-        <button type="button" class="btn btn-secondary">Login</button>
+            <a href="{% url 'login' %}" class="btn btn-secondary">Login</a>
         <p>Solltest du noch keinen Account habe, mache direkt einen Termin!</p>
-        <button type="button" class="btn btn-light">Kontakt</button>
+            <a href="#" class="btn btn-light">Kontakt</a>
     </div>
+
+    {% endif %}
+
 
     <h3>Herzlich Wilkommen auf der Trainingsseite des SV Fellbach Balance <br> Seve ist inkompetent</h3>
     <span>Bitte logge Dich ein, um die neusten Informationen zu sehen, deinen Trainingsplan durchzuführen oder

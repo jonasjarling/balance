@@ -5,7 +5,8 @@
     <title>{% block title %}SVF Balance Fit {% endblock %}</title>
 
     {% load static %}
-
+    {% block head %}
+    {%  endblock %}
     {%  comment %}
     <link href="balance/balance/static/balance/bootstrap.min.css">
 
@@ -66,10 +67,17 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item">
+                        {% if user.is_authenticated %}
+                           <a class="nav-link" href="{% url 'user_logout' %}">
+                            <i class="fas fa-power-off"></i>
+                            Logout
+                        </a>
+                        {%  else %}
                         <a class="nav-link" href="{% url 'login' %}">
                             <i class="fas fa-power-off"></i>
                             Login
                         </a>
+                        {%  endif %}
                     </li>
 
                 </ul>
@@ -84,7 +92,9 @@
         <div class="container">
             <span class="text-muted">Footer</span>
             <a href="#">Impressum</a>
-            <span>TODO</span>
+            <a href="#">Datenschutzerklärung</a>
+            <span>Copyright to ...</span>
+            <a href="#">Kontakt</a>
         </div>
     </footer>
 

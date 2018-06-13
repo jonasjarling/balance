@@ -15,7 +15,7 @@
   </li>
   <li>Database<ul>
     <li>Technologieentscheidung</li>
-    <li>Impelemtierung</li>
+    <li>Implementierung</li>
     </ul></li>
   <li>Before Production Environment <ul>
     <li>Webserver (DJANGO IS NOT A WEBSERVER) https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/modwsgi/#serving-files</li>
