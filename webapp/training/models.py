@@ -15,7 +15,7 @@ class Equipment(models.Model):
 class Exercise(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=500)
-    equipment = models.OneToOneField(Equipment, on_delete=models.CASCADE)
+    equipment = models.ManyToManyField(Equipment)
     picture = models.ImageField(upload_to='training/', height_field=None, width_field=None, max_length=100)
 
     def __str__(self):
@@ -25,7 +25,7 @@ class Exercise(models.Model):
 class Workout(models.Model):
     name = models.CharField(max_length=50)
     createdBy = models.CharField(max_length=50)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ManyToManyField(User)
 
     def __str__(self):
         return self.name
