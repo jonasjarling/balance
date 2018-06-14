@@ -9,7 +9,7 @@
         {% for key,value in items.items %}
            <div class="jumbotron" style="padding: 1rem 1rem">
                 <div class="media">
-                <img class="mr-3" src="#" alt="newsimage">
+                <img class="mr-3" src="{{ value.picture }}" alt="newsimage" height="150" width="150">
                 <div class="media-body">
                     <span style="color: darkgrey">{{ value.date }}</span>
                     <h5 class="mt-0">{{ value.headline }}</h5>
