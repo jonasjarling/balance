@@ -143,4 +143,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+MEDIA_URL = '/static/uploads/'
+MEDIA_ROOT = 'static/uploads'
 #AUTH_USER_MODEL = 'main.MyUser'
