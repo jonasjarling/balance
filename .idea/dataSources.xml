@@ -12,26 +12,7 @@
         <property name="enable_load_extension" value="true" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="mydatabase" uuid="727bf3d6-66d3-4b7a-b790-546dfa8f4299">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>SQLite</remarks>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:E:\Program Files\PyCharm 2017.3.2\PyCharme Projects\balance\webapp\mydatabase</jdbc-url>
-      <driver-properties>
-        <property name="enable_load_extension" value="true" />
-      </driver-properties>
-      <libraries>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.16.1/sqlite-jdbc-3.16.1.jar</url>
-        </library>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.16.1/xerial-sqlite-license.txt</url>
-        </library>
-      </libraries>
-    </data-source>
-    <data-source source="LOCAL" name="mydatabase [2]" uuid="26dc900f-922e-447e-9ddb-d4643a263bd4">
+    <data-source source="LOCAL" name="mydatabase [3]" uuid="7f041b66-1ce6-4033-8874-0711c9adaccc">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>

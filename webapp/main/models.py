@@ -3,9 +3,21 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, User
 
 
 class News(models.Model):
-    date = models.DateField
+    date = models.DateField(auto_now_add=True)
     headline = models.CharField(max_length=50)
     text = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.headline
+
+    def as_dict(self):
+        return {
+            str(self.id): {
+                "date": self.date,
+                "headline": self.headline,
+                "text": self.text,
+            },
+        }
 
 
 class MyUserManager(BaseUserManager):

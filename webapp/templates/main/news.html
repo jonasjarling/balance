@@ -4,19 +4,20 @@
 
 {% block body %}
     <div class="container">
-            <br>
-            {% for news_heading, news_text in context.items %}
-                <div class="jumbotron" style="padding: 1rem 1rem">
+    <br>
+    {% for items in context %}
+        {% for key,value in items.items %}
+           <div class="jumbotron" style="padding: 1rem 1rem">
                 <div class="media">
                 <img class="mr-3" src="#" alt="newsimage">
                 <div class="media-body">
-                    <span style="color: darkgrey">Date</span>
-                    <h5 class="mt-0">{{ news_heading }}</h5>
-                    {{ news_text }}
+                    <span style="color: darkgrey">{{ value.date }}</span>
+                    <h5 class="mt-0">{{ value.headline }}</h5>
+                    {{ value.text }}
                 </div>
                 </div>
                 </div>
             {% endfor %}
-
+    {% endfor %}
     </div>
 {% endblock %}

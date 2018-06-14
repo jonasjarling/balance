@@ -76,7 +76,7 @@ def index(request):
             "repetition": "12",
         }
     }
-
+    print(context)
     return render(request, "training/training.html", {"context":context})
     #return HttpResponse(template.render(context))
 

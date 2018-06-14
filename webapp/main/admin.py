@@ -4,7 +4,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-from .models import MyUser
+from .models import MyUser, News
 
 # Register your models here.
 
@@ -80,4 +80,5 @@ class UserAdmin(BaseUserAdmin):
 
 # Now register the new UserAdmin...
 admin.site.register(MyUser, UserAdmin)
+admin.site.register(News)
 
