@@ -9,32 +9,33 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    joined = User.date_joined
-    dateOfBirth = models.DateField
+    dateOfBirth = models.DateField(blank=True, null=True)
     adress = models.CharField(max_length=50, blank=True)
-    email = User.email
     telephone = models.CharField(max_length=20, blank=True)
     sex = models.CharField(max_length=10)
-    height = models.IntegerField
-    goal = models.CharField(max_length=500)
-    picture = models.ImageField(upload_to="profilePics/", height_field=None, width_field=None, max_length=100)
+    height = models.IntegerField(blank=True)
+    goal = models.CharField(max_length=500, blank=True, null=True)
+    picture = models.ImageField(upload_to="profilePics/", height_field=None, width_field=None, max_length=100, blank=True)
 
-    weight = models.IntegerField
-    fat = models.FloatField
-    muscle = models.FloatField
-    bone = models.FloatField
-    water = models.FloatField
-    bmi = models.FloatField
+    weight = models.FloatField(blank=True, null=True)
+    fat = models.FloatField(blank=True, null=True)
+    muscle = models.FloatField(blank=True, null=True)
+    bone = models.FloatField(blank=True, null=True)
+    water = models.FloatField(blank=True, null=True)
+    bmi = models.FloatField(blank=True, null=True)
 
     def __str__(self):
         return self.user.username
 
     def as_dict(self):
         return{
-            "joined":self.joined,
+            "first_name":self.user.first_name,
+            "last_name":self.user.last_name,
+            "last_login":self.user.last_login,
+            "date_joined":self.user.date_joined,
             "dateOfBirth":self.dateOfBirth,
             "adress":self.adress,
-            "email":self.email,
+            "email":self.user.email,
             "telephone":self.telephone,
             "sex":self.sex,
             "height":self.height,
