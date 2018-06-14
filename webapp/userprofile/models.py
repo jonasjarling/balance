@@ -16,6 +16,7 @@ class Profile(models.Model):
     sex = models.CharField(max_length=10)
     height = models.IntegerField
     goal = models.CharField(max_length=500)
+    picture = models.ImageField(upload_to="profilePics/", height_field=None, width_field=None, max_length=100)
 
     weight = models.IntegerField
     fat = models.FloatField

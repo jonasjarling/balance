@@ -16,7 +16,7 @@ class Exercise(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=500)
     equipment = models.OneToOneField(Equipment, on_delete=models.CASCADE)
-    picture = models.ImageField(upload_to='uploads/', height_field=None, width_field=None, max_length=100)
+    picture = models.ImageField(upload_to='training/', height_field=None, width_field=None, max_length=100)
 
     def __str__(self):
         return self.name
