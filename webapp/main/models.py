@@ -2,6 +2,12 @@ from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, User
 
 
+class News(models.Model):
+    date = models.DateField
+    headline = models.CharField(max_length=50)
+    text = models.CharField(max_length=500)
+
+
 class MyUserManager(BaseUserManager):
     def create_user(self, email,  password=None):
         """
