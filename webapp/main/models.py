@@ -4,6 +4,7 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, User
 
 class News(models.Model):
     date = models.DateField(auto_now_add=True)
+    picture = models.ImageField(upload_to='news/', height_field=None, width_field=None, max_length=100)
     headline = models.CharField(max_length=50)
     text = models.CharField(max_length=500)
 
@@ -14,6 +15,7 @@ class News(models.Model):
         return {
             str(self.id): {
                 "date": self.date,
+                "picture": self.picture.url,
                 "headline": self.headline,
                 "text": self.text,
             },

@@ -44,17 +44,6 @@ def logout_view(request):
 
 
 def news(request):
-    context = {
-        'Hallo Welt':'Hure123',
-        'Guck nicht!': 'Und iss weiter! ',
-        'Guck nicht': 'Und iss weiter! ',
-        'Guck nicht!!': 'Und iss weiter!'
-                        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. ',
-        'Guck nicht!!!': 'Und iss weiter! ',
-        }
-    context = ""
-    data = list(News.objects.all())
-    print(data)
     context = [obj.as_dict() for obj in News.objects.all()]
     print(context)
     return render(request, 'main/news.html', {"context":context})
