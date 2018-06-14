@@ -15,8 +15,14 @@ class Profile(models.Model):
     telephone = models.CharField(max_length=20, blank=True)
     sex = models.CharField(max_length=10)
     height = models.IntegerField
-    weight = models.IntegerField
     goal = models.CharField(max_length=500)
+
+    weight = models.IntegerField
+    fat = models.FloatField
+    muscle = models.FloatField
+    bone = models.FloatField
+    water = models.FloatField
+    bmi = models.FloatField
 
     def __str__(self):
         return self.user.username
