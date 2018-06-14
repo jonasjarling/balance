@@ -9,7 +9,7 @@ SVFBalance | Profile
 {% block body %}
 <br>
     <div class="container">
-    <span style="text-align: center"><h3>Vorname Nachname</h3></span>
+    <span style="text-align: center"><h3>{{ context.first_name }} {{ context.last_name }}</h3></span>
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-2" align="center">
                 <img src="{% static 'images/profile.jpg' %}" width="100px" height="100px"><br>
@@ -20,19 +20,19 @@ SVFBalance | Profile
             <div class="col-sm-12 col-md-8 col-lg-10">
                 <table class="table table-user-information">
                     <tr>
-                        <td>Mitgliedsnummer: </td>
+                        <td>Mitgliedsnummer: {{ context.id }}</td>
                         <td><span class="border-right">&nbsp</span></td>
-                        <td>Mitglied seit:</td>
+                        <td>Mitglied seit: {{ context.date_joined }}</td>
                     </tr>
                     <tr>
-                        <td>Geburtstag: </td>
+                        <td>Geburtstag: {{ context.dateOfBirth }}</td>
                         <td><span class="border-right">&nbsp</span></td>
-                        <td>Adresse:</td>
+                        <td>Adresse: {{ context.adress }}</td>
                     </tr>
                     <tr>
-                        <td>Email : </td>
+                        <td>Email: {{ context.email }}</td>
                         <td><span class="border-right">&nbsp</span></td>
-                        <td>Telefonnummer:</td>
+                        <td>Telefonnummer: {{ context.telephone }}</td>
                     </tr>
                 </table>
             </div>
@@ -41,9 +41,9 @@ SVFBalance | Profile
             <h3 style="text-align: center">Körperdaten</h3>
             <table class="table">
                 <tr>
-                    <td>Geschlecht: </td>
+                    <td>Geschlecht: {{ context.sex }}</td>
                     <td><span class="border-right">&nbsp</span></td>
-                    <td>Körpergröße: </td>
+                    <td>Körpergröße: {{ context.height }}</td>
                     <td><span class="border-right">&nbsp</span></td>
                     <td>Körpergröße: </td>
                 </tr>

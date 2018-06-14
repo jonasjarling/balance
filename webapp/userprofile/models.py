@@ -29,6 +29,7 @@ class Profile(models.Model):
 
     def as_dict(self):
         return{
+            "id":self.user.id,
             "first_name":self.user.first_name,
             "last_name":self.user.last_name,
             "last_login":self.user.last_login,
