@@ -29,6 +29,26 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+    def as_dict(self):
+        return{
+            "joined":self.joined,
+            "dateOfBirth":self.dateOfBirth,
+            "adress":self.adress,
+            "email":self.email,
+            "telephone":self.telephone,
+            "sex":self.sex,
+            "height":self.height,
+            "goal":self.goal,
+            "picture":self.picture,
+            "weight":self.weight,
+            "fat":self.fat,
+            "muscle":self.muscle,
+            "bone":self.bone,
+            "water":self.water,
+            "bmi":self.bmi,
+        }
+
+
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwags):
