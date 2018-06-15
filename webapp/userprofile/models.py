@@ -12,8 +12,8 @@ class Profile(models.Model):
     dateOfBirth = models.DateField(blank=True, null=True)
     adress = models.CharField(max_length=50, blank=True)
     telephone = models.CharField(max_length=20, blank=True)
-    sex = models.CharField(max_length=10)
-    height = models.IntegerField(blank=True)
+    sex = models.CharField(max_length=10, null=True)
+    height = models.IntegerField(blank=True, null=True)
     goal = models.CharField(max_length=500, blank=True, null=True)
     picture = models.ImageField(upload_to="profilePics/", height_field=None, width_field=None, max_length=100, blank=True)
 
@@ -49,7 +49,6 @@ class Profile(models.Model):
             "water":self.water,
             "bmi":self.bmi,
         }
-
 
 
 @receiver(post_save, sender=User)
