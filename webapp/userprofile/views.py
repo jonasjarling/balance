@@ -13,3 +13,8 @@ def userprofile(request):
     context = Profile.objects.get(user=request.user).as_dict()
     print(context)
     return render(request, 'userprofile/profile.html', {"context":context})
+
+@login_required
+def statistic(request):
+    context = ''
+    return render(request, 'userprofile/statistic.html', {"context":context})

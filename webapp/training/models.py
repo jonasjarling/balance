@@ -15,7 +15,7 @@ class Equipment(models.Model):
 class Exercise(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
-    equipment = models.ManyToManyField(Equipment, blank=True, null=True)
+    equipment = models.ManyToManyField(Equipment, blank=True)
     picture = models.ImageField(upload_to='training/', height_field=None, width_field=None, max_length=100, blank=True, null=True)
 
     def __str__(self):
@@ -35,7 +35,7 @@ class Exercise(models.Model):
 class Workout(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     createdBy = models.CharField(max_length=50, blank=True, null=True)
-    user = models.ManyToManyField(User, blank=True, null=True)
+    user = models.ManyToManyField(User, blank=True)
 
     def __str__(self):
         return self.name
@@ -43,8 +43,8 @@ class Workout(models.Model):
 
 class Routine(models.Model):
     name = models.CharField(max_length=100, blank=True, null=True)
-    exercise = models.ManyToManyField(Exercise, blank=True, null=True)
-    workout = models.ManyToManyField(Workout, blank=True, null=True)
+    exercise = models.ManyToManyField(Exercise, blank=True)
+    workout = models.ManyToManyField(Workout, blank=True)
     setup = models.CharField(max_length=200, blank=True, null=True)
     reps = models.IntegerField(default=0)
     sets = models.IntegerField(default=0)

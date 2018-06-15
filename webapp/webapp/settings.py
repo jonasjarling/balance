@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     #own apps
     'api.apps.ApiConfig',
     'main.apps.MainConfig',
-    'statistic.apps.StatisticConfig',
     'training.apps.TrainingConfig',
     'userprofile.apps.UserprofileConfig',
 ]

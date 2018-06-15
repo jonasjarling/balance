@@ -22,7 +22,6 @@ from . import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^training/', include('training.urls')),
-    url(r'^statistic/', include('statistic.urls')),
     url(r'^profile/', include('userprofile.urls')),
     url(r'^', include('main.urls')),
 
