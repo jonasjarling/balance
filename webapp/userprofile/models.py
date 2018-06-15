@@ -7,6 +7,21 @@ from django.dispatch import receiver
 # Create your models here.
 
 
+class Weight(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    weight = models.FloatField(blank=True)
+
+    def __str__(self):
+        return "%s %s" % (self.user, self.date)
+
+    def as_dict(self):
+        return {
+            "date": self.date,
+            "weight": self.weight,
+        }
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     dateOfBirth = models.DateField(blank=True, null=True)
