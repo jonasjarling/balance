@@ -6,7 +6,7 @@ class News(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     picture = models.ImageField(upload_to='news/', height_field=None, width_field=None, max_length=100,blank=True, null=True)
     headline = models.CharField(max_length=50)
-    text = models.CharField(max_length=500,blank=True, null=True)
+    text = models.CharField(max_length=500, blank=True, null=True)
 
     def __str__(self):
         return self.headline
@@ -24,7 +24,6 @@ class News(models.Model):
     class Meta:
         verbose_name = "News"
         verbose_name_plural = "News"
-        ordering = ['-date']
 
 
 class MyUserManager(BaseUserManager):
