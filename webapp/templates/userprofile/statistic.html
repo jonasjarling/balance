@@ -11,6 +11,16 @@
 
 {% block body %}
 <div class="container">
+<select id="dataSelection">
+    <option value="Gewicht">Gewicht</option>
+    <option value="Gewicht">Fettanteil</option>
+    <option value="Gewicht">Wasseranteil</option>
+    <option value="Gewicht">Muskelmasse</option>
+    <option value="Gewicht">Knochenmasse</option>
+    <option value="Gewicht">BMI</option>
+</select>
+    <span></span>
+<button class="btn btn-danger" onclick="updateData(myLineChart)">update</button>
     <canvas id="myChart"></canvas>
 </div>
 <script>
@@ -18,9 +28,9 @@
     var myLineChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels:["June 1, 2018", "June 25, 2018"],
+
         datasets: [{
-            label:'weight',
+            label:'Gewicht',
             data:[
                 {% for item in context.items %}
                     {% for data in item %}
@@ -45,10 +55,30 @@
                     }
                 }
             }]
+        },
+        title: {
+            display: true,
+            text: "test123"
         }
+
     }
     });
 
+
+    function updateData(chart, txt) {
+        chart.options.title.text = txt;
+        chart.update()
+    }
+
+    $("select")
+    .change(function () {
+        var str = "";
+        $("select option:selected").each(function () {
+            str += $ (this ).text()+"";
+        });
+        updateData(myLineChart, str)
+    })
+    .trigger( "change" )
 </script>
 
 

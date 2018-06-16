@@ -9,7 +9,7 @@ from django.dispatch import receiver
 
 class Weight(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField(blank=True, null=True)
     weight = models.FloatField(blank=True)
 
     def __str__(self):
@@ -20,6 +20,8 @@ class Weight(models.Model):
                 "date": self.date,
                 "weight": self.weight,
         }
+
+
 
 
 class Profile(models.Model):
