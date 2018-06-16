@@ -5,6 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect, resolve_url
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserForm
 from django.views.generic import View
+import requests
 from django.contrib.auth.decorators import login_required
 from .models import News
 from django.http import JsonResponse
@@ -12,12 +13,16 @@ from django.http import JsonResponse
 # Create your views here.
 def index(request):
 
+    return render(request, 'main/index.html')
 
-    context = {
-        'test': '123'
-    }
-    return render(request, 'main/index.html', context)
 
+def impressum(request):
+
+    return render(request, 'main/impressum.html')
+
+
+def dataprotection(request):
+    return render(request, 'main/dataprotection.html')
 
 def login(request):
     username = request.POST['username']
