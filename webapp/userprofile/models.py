@@ -22,6 +22,31 @@ class Weight(models.Model):
         }
 
 
+class BodyStats(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateField(blank=True, null=True)
+    fat = models.FloatField(blank=True, null=True)
+    muscle = models.FloatField(blank=True, null=True)
+    bone = models.FloatField(blank=True, null=True)
+    water = models.FloatField(blank=True, null=True)
+    bmi = models.FloatField(blank=True, null=True)
+
+    def __str__(self):
+        return "%s %s" % (self.user, self.date)
+
+    def as_dict(self):
+        return{
+            "date": self.date,
+            "fat": self.fat,
+            "muscle": self.muscle,
+            "bone": self.bone,
+            "water": self.water,
+            "bmi": self.bmi
+        }
+
+    class Meta:
+        verbose_name_plural = "Body Stats"
+        verbose_name = "Body Stats"
 
 
 class Profile(models.Model):
