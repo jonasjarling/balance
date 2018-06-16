@@ -17,10 +17,8 @@ class Weight(models.Model):
 
     def as_dict(self):
         return {
-            str(self.id): {
                 "date": self.date,
                 "weight": self.weight,
-            },
         }
 
 

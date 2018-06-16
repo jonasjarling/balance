@@ -10,30 +10,43 @@
 
 
 {% block body %}
-
-    {{ context }}
-    <hr>
-    {% for item in context.items %}
-        {% for data in item %}
-            {{ data.weight }}<br>
-            {{ data.date }}
-            {% endfor %}
-    {% endfor %}
-
+<div class="container">
     <canvas id="myChart"></canvas>
-
+</div>
 <script>
-    var ctx = document.getElementById("myChart");
+    var ctx = document.getElementById("myChart").getContext('2d');
     var myLineChart = new Chart(ctx, {
     type: 'line',
-    data: [{
-        x: 10,
-        y: 20
-    }, {
-        x: 15,
-        y: 10
-    }],
-    options: ""
+    data: {
+        labels:["June 1, 2018", "June 25, 2018"],
+        datasets: [{
+            label:'weight',
+            data:[
+                {% for item in context.items %}
+                    {% for data in item %}
+                        {% if data.date != "" %}
+                        {
+                            x: "{{ data.date }}",
+                            y: {{ data.weight }}
+                        },
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            ]
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                type:'time',
+                time: {
+                    displayFormats: {
+                        quarter: 'DD MMM'
+                    }
+                }
+            }]
+        }
+    }
     });
 
 </script>
