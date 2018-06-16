@@ -21,6 +21,12 @@ class Weight(models.Model):
                 "weight": self.weight,
         }
 
+    def as_chart(self):
+        return{
+            "x": self.date,
+            "y": self.weight
+        }
+
 
 class BodyStats(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -42,6 +48,35 @@ class BodyStats(models.Model):
             "bone": self.bone,
             "water": self.water,
             "bmi": self.bmi
+        }
+
+    def fat_dict(self):
+        return{
+            "x": self.date,
+            "y": self.fat
+        }
+
+    def muscle_dict(self):
+        return{
+            "x": self.date,
+            "y": self.muscle
+        }
+
+    def bone_dict(self):
+        return{
+            "x": self.date,
+            "y": self.bone
+        }
+
+    def water_dict(self):
+        return{
+            "x": self.date,
+            "y": self.water
+        }
+    def bmi_dict(self):
+        return{
+            "x": self.date,
+            "y": self.bmi
         }
 
     class Meta:

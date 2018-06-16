@@ -12,14 +12,15 @@
 {% block body %}
 <div class="container">
 <select id="dataSelection">
-    <option value="Gewicht">Gewicht</option>
-    <option value="Gewicht">Fettanteil</option>
-    <option value="Gewicht">Wasseranteil</option>
-    <option value="Gewicht">Muskelmasse</option>
-    <option value="Gewicht">Knochenmasse</option>
-    <option value="Gewicht">BMI</option>
+    <option value="weight">Gewicht</option>
+    <option value="fat">Fettanteil</option>
+    <option value="water">Wasseranteil</option>
+    <option value="muscle">Muskelmasse</option>
+    <option value="bone">Knochenmasse</option>
+    <option value="bmi">BMI</option>
 </select>
     <span></span>
+
 <button class="btn btn-danger" onclick="updateData(myLineChart)">update</button>
     <canvas id="myChart"></canvas>
 </div>
@@ -66,17 +67,26 @@
 
     var endpoint = '/profile/api/bodystats/'
     console.log(endpoint)
+    var info
     $.ajax({
         method: "GET",
         url: endpoint,
         success: function(data){
             console.log(data)
+            console.log(data.data)
         },
         error: function (error_data) {
             console.log("error")
             console.log(error_data)
         }
     })
+
+    var fat = ""
+    var water = ""
+    var muscle = ""
+    var bone = ""
+    var bmi = ""
+
     function updateData(chart, txt) {
         chart.options.title.text = txt;
         chart.update()

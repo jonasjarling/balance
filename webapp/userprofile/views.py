@@ -24,7 +24,14 @@ def statistic(request):
 def get_bodystats(request, *args, **kwargs):
     datas = BodyStats.objects.filter(user=request.user)
     data = ""
+    if args == "fat":
+        for obj in datas:
+            data +=str(obj.fat_dict)
+
+
     for obj in datas:
         data += str(obj.as_dict())
     print(data)
     return JsonResponse({"data":data})
+
+
