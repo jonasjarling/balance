@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #added apps
     'django.contrib.sites',
     'django.contrib.redirects',
+    'rest_framework',
     #own apps
     'api.apps.ApiConfig',
     'main.apps.MainConfig',
@@ -145,3 +146,11 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/static/uploads/'
 MEDIA_ROOT = 'static/uploads'
 #AUTH_USER_MODEL = 'main.MyUser'
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}

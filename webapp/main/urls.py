@@ -12,4 +12,5 @@ urlpatterns = (
     #url('^login/$', views.UserFormView.as_view(), name='login'),
     path('news/', views.news, name='news'),
     url(r'^$', views.index, name='index'),
+
 )

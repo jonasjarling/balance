@@ -64,7 +64,19 @@
     }
     });
 
-
+    var endpoint = '/profile/api/bodystats/'
+    console.log(endpoint)
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function(data){
+            console.log(data)
+        },
+        error: function (error_data) {
+            console.log("error")
+            console.log(error_data)
+        }
+    })
     function updateData(chart, txt) {
         chart.options.title.text = txt;
         chart.update()
