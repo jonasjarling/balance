@@ -15,25 +15,38 @@ SVFBalance | Training
         </div>
     <br>
         <div class="row">
-            {%  for exercise_key, exercise_value in context.items %}
+            {%  for item in routine %}
                 <div class="card" style="width: 18rem; margin: 0.4rem">
-                    <img class="card-img-top" src="#" alt="alt Text">
+                    <img class="card-img-top" src="{{ item.picture }}" alt="Activity image">
                 <div class="card-body">
-                    <h5 class="card-title">{{ exercise_key }}</h5>
-                    <p class="card-text">{{ information }}</p>
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <!-- hat keine auswirkung ???
+                    <p class="card-text">DEPP {{ information }}</p>
+                    -->
                 </div>
                 <ul class="list-group list-group-flush">
-                    {% for key, value in exercise_value.items %}
-                        <li class="list-group-item">{{ key }} : {{ value }}</li>
-                    {% endfor %}
-                    <li class="list-group-item"><button type="button" class="btn btn-secodary">Abgeschlossen</button></li>
+                    <li class="list-group-item">Equipment: {{ item.equipment }}</li>
+                    <li class="list-group-item">Description: {{ item.description }}</li>
+                    <li class="list-group-item">Setup: {{ item.setup }}</li>
+                    <li class="list-group-item">Sets: {{ item.sets }}</li>
+                    <li class="list-group-item">Repetitions: {{ item.reps }}</li>
+                    <li class="list-group-item">
+                        <form action="" method="DELETE">
+                            <button name="closed_routine" type="button" class="btn btn-secodary">
+                                Abgeschlossen
+                            </button>
+                        </form>
+                    </li>
                 </ul>
                 </div>
+
             {%  endfor %}
         </div>
         <div class="row">
             <div class="col" align="center">
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#newTraining">Training abgeschlossen</button>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#newTraining">
+                    Training abgeschlossen
+                </button>
             </div>
         </div>
     </div>
@@ -44,16 +57,16 @@ SVFBalance | Training
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="newTrainingLabel">erneut trainieren?</h5>
-                    <button type="button" class="close" data-dismiss=""modal" aria-label="Schließen">
-                    <span aria-hidden=""true">&times;</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
+                    <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     Du hast heute bereits trainiert. Willst du ein neues Training starten?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss=""modal">Schließen</button>
-                    <button type="button" class="btn btn-primary">neues Workout</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                    <button type="button" class="btn btn-primary">Neues Workout</button>
                 </div>
             </div>
         </div>
