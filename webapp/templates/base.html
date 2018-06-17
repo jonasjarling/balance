@@ -8,7 +8,7 @@
     {% progressive_web_app_meta %}
     {% block head %}
     {%  endblock %}
-
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -86,10 +86,8 @@
     </nav>
 <br>
 {% block body %}
-    Du bist offline, jedoch kannst du deinen Trainingsplan trotzdem sehen!
+    Willkommen in unserer WebApp. Hier kannst du auch offline deinen Trainingsplan sehen!
 {% endblock %}
-<script type="text/javascript" src="{% static   'js/idb.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/idbop.js' %}"></script>
     <footer class="footer bg-dark">
         <div class="container">
             <span class="text-muted">Footer</span>

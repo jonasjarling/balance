@@ -25,7 +25,7 @@ SECRET_KEY = '-rf_#ve)dafxd=z64#t+28+%98u3jctti1b-8ox@zr^c(jbjov'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 SITE_ID = 1
 # Application definition
@@ -157,3 +157,14 @@ REST_FRAMEWORK = {
 }
 
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+PWA_APP_NAME = 'SVF Fitness App'
+PWA_APP_DESCRIPTION = "Fitness Webapp des Sportverein Fellbach"
+PWA_APP_THEME_COLOR = '#0A0302'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_START_URL = '/'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/images/logo-320.png',
+        'sizes': '320x320'
+    }
+]
