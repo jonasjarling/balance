@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
+{% load pwa %}
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}SVF Balance Fit {% endblock %}</title>
-
-    {% load static %}
+    {% progressive_web_app_meta %}
     {% block head %}
     {%  endblock %}
 
