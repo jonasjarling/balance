@@ -86,9 +86,11 @@
     </nav>
 <br>
 {% block body %}
+    Du bist offline, jedoch kannst du deinen Trainingsplan trotzdem sehen!
 {% endblock %}
-
-    <footer class="footer">
+<script type="text/javascript" src="{% static   'js/idb.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/idbop.js' %}"></script>
+    <footer class="footer bg-dark">
         <div class="container">
             <span class="text-muted">Footer</span>
             <a href="{% url 'impressum' %}">Impressum</a>
