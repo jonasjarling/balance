@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.redirects',
     'rest_framework',
     'pwa',
+    'sslserver',
     #own apps
     'api.apps.ApiConfig',
     'main.apps.MainConfig',
@@ -157,10 +158,11 @@ REST_FRAMEWORK = {
 }
 
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+
 PWA_APP_NAME = 'SVF Fitness App'
 PWA_APP_DESCRIPTION = "Fitness Webapp des Sportverein Fellbach"
 PWA_APP_THEME_COLOR = '#0A0302'
-PWA_APP_DISPLAY = 'standalone'
+PWA_APP_DISPLAY = 'fullscreen'#fullscreen, standalone, browser
 PWA_APP_START_URL = '/'
 PWA_APP_ICONS = [
     {

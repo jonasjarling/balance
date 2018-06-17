@@ -6,11 +6,14 @@ SVFBalance | Startseite
 
 {%  block homeActive %} active {%  endblock %}
 
-
+{% block head %}
+    {% load pwa %}
+    {% progressive_web_app_meta %}
+{% endblock %}
 {% block body %}
     <div class="container">
     {% if user.is_authenticated %}
-        <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+        <p>Welcome, {{ user.username }}. Thanks for logging in. Du hast dich zuletzt am {{ user.last_login.date }} um {{ user.last_login.time }} eingeloggt.</p>
     {% else %}
         <div class="jumbotron">
         <h1 class="display-4">Herzlich Willkommen!</h1>

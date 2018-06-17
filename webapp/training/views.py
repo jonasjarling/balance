@@ -10,18 +10,18 @@ from .models import Equipment, Routine, Workout, User
 @login_required
 def index(request):
     #context = [obj.get_context() for obj in Routine.objects.all()]
-    try:
-        workout = Workout.objects.get(user=request.user).as_dict()
-    except:
+
+    workout = Workout.objects.get(user=request.user).as_dict()
+    """except:
         print("no workout for user")
         return render(request, 'main/index.html')
+        """
     routines = Routine.objects.get_queryset().filter(workout__user=request.user)
     routine = {}
     for obj in routines:
         routine[obj] = obj.as_dict()
 
     equipment = Equipment.objects.filter(routine__workout__user=request.user).values()
-
     return render(
         request,
         'training/training.html',
@@ -32,7 +32,7 @@ def index(request):
         }
     )
 
-
+"""
 @login_required
 def getdata(request):
     try:
@@ -56,7 +56,7 @@ def getdata(request):
     jsondata = serializers.serialize('json', results)
     return HttpResponse(jsondata)
 
-
+"""
 
 def plan(request, plan_id):
 
