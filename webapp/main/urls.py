@@ -14,4 +14,5 @@ urlpatterns = (
     url(r'^$', views.index, name='index'),
     path('impressum/', views.impressum, name='impressum'),
     path('dataprotection', views.dataprotection, name='dataprotection'),
+    path('base_layout', views.base_layout)
 )

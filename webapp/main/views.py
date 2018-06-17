@@ -54,6 +54,11 @@ def news(request):
     return render(request, 'main/news.html', {"context":context})
 
 
+def base_layout(request):
+    template = 'base.html'
+    return render(request, template)
+
+
 class UserFormView(View):
     form_class = UserForm
     template_name = 'main/registrationForm.html'
