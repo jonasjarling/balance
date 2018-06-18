@@ -89,10 +89,10 @@ class Profile(models.Model):
     dateOfBirth = models.DateField(blank=True, null=True)
     adress = models.CharField(max_length=50, blank=True)
     telephone = models.CharField(max_length=20, blank=True)
-    sex = models.CharField(max_length=10, null=True, blank=True)
+    sex = models.CharField(max_length=10, null=True, blank=True, choices=(('m', 'männlich'), ('w', 'weiblich')))
     height = models.IntegerField(blank=True, null=True)
     goal = models.CharField(max_length=500, blank=True, null=True)
-    picture = models.ImageField(upload_to="profilePics/", height_field=None, width_field=None, max_length=100, blank=True, null=True)
+    picture = models.ImageField(upload_to="profilePics/", height_field=None, width_field=None, max_length=100, blank=True, null=True, default='profilePics/default-profile-picture.jpg')
 
     weight = models.FloatField(blank=True, null=True)
     fat = models.FloatField(blank=True, null=True)
@@ -105,27 +105,32 @@ class Profile(models.Model):
         return self.user.username
 
     def as_dict(self):
-        return{
-            "id":self.user.id,
-            "first_name":self.user.first_name,
-            "last_name":self.user.last_name,
-            "last_login":self.user.last_login,
-            "date_joined":self.user.date_joined.date(),
-            "dateOfBirth":self.dateOfBirth,
-            "adress":self.adress,
-            "email":self.user.email,
-            "telephone":self.telephone,
-            "sex":self.sex,
-            "height":self.height,
-            "goal":self.goal,
-            "picture":self.picture.url,
-            "weight":self.weight,
-            "fat":self.fat,
-            "muscle":self.muscle,
-            "bone":self.bone,
-            "water":self.water,
-            "bmi":self.bmi,
-        }
+        try:
+            return{
+                "id":self.user.id,
+                "first_name":self.user.first_name,
+                "last_name":self.user.last_name,
+                "last_login":self.user.last_login,
+                "date_joined":self.user.date_joined.date(),
+                "dateOfBirth":self.dateOfBirth,
+                "adress":self.adress,
+                "email":self.user.email,
+                "telephone":self.telephone,
+                "sex":self.sex,
+                "height":self.height,
+                "goal":self.goal,
+                "picture":self.picture.url,
+                "weight":self.weight,
+                "fat":self.fat,
+                "muscle":self.muscle,
+                "bone":self.bone,
+                "water":self.water,
+                "bmi":self.bmi,
+            }
+        except:
+            return {
+                "error": "Bitte aktualisiere dein Profil!",
+            }
 
 
 @receiver(post_save, sender=User)

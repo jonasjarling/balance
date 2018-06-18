@@ -7,15 +7,13 @@ SVFBalance | Profile
 {%  block profileActive %} active {%  endblock %}
 
 {% block body %}
-<br>
+
     <div class="container">
+        <span class="badge badge-danger" style="alignment: center; font-size: 25px">{{ context.error }}</span>
     <span style="text-align: center"><h3>{{ context.first_name }} {{ context.last_name }}</h3></span>
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-2" align="center">
-                <img src="{{ context.picture }}" width="100px" height="100px" alt="Profile Image"><br>
-                <a class="btn btn-primary"  style="border-style: solid; border-width: 1px; border-color: #1b1e21;" ><i class="fas fa-envelope"style="font-size: 12px"></i></a>
-                <a class="btn btn-warning" href="{% url 'modify' %}" style="border-style: solid; border-width: 1px; border-color: #1b1e21"><i class="fas fa-edit" style="font-size: 12px"></i></a>
-                <a class="btn btn-danger" style="border-style: solid; border-width: 1px; border-color: #1b1e21"><i class="fas fa-trash-alt" style="font-size: 12px"></i></a>
+                <img src="{{ context.picture }}" width="120px" height="120px" alt="Profile Image"><br>
             </div>
             <div class="col-sm-12 col-md-8 col-lg-10">
                 <table class="table table-user-information">
@@ -43,7 +41,7 @@ SVFBalance | Profile
                 <tr>
                     <td>Geschlecht: {{ context.sex }}</td>
                     <td><span class="border-right">&nbsp</span></td>
-                    <td>Körpergröße: {{ context.height }}</td>
+                    <td>Körpergröße: {{ context.height }} cm</td>
                     <td><span class="border-right">&nbsp</span></td>
                     <td>Gewicht: {{ context.weight }}</td>
                 </tr>
