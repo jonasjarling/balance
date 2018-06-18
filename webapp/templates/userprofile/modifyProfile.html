@@ -1,0 +1,88 @@
+{% extends 'main/baseDoubleNav.html' %}
+{%  load static %}
+{% block title %}
+SVFBalance | Modify Profile
+{% endblock %}
+
+{%  block modifyProfileActive %} active {%  endblock %}
+
+{% block body %}
+<head>
+</head>
+<body>
+<div class="container">
+    <span><h3>Editierbare Werte</h3></span>
+    <form action="" method="POST" class="weight-form">
+        {% csrf_token %}
+        {{ profileform.as_p }}
+        <br>
+        <table class="table">
+            <tr>
+                <td><p><label for="id_picture">Picture:</label></td>
+                <td><span class="border-right">&nbsp</span></td>
+                <td>Currently: <a href="/static/uploads/profilePics/updateapr27-7afa99f25ff74867a5e32d450211f5a8.jpg">profilePics/updateapr27-7afa99f25ff74867a5e32d450211f5a8.jpg</a></td>
+            </tr>
+            <tr>
+                <td>Change:</td>
+                <td><input type="file" name="picture" id="id_picture" /></td>
+                <td><span class="border-right">&nbsp</span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><span class="border-right">&nbsp</span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><span class="border-right">&nbsp</span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><span class="border-right">&nbsp</span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><span class="border-right">&nbsp</span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><span class="border-right">&nbsp</span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><span class="border-right">&nbsp</span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><span class="border-right">&nbsp</span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><span class="border-right">&nbsp</span></td>
+            </tr>
+
+        </table>
+        <br>
+
+
+
+
+        <p><label for="id_height">Height:</label> <input type="number" name="height" value="167" id="id_height" /></p>
+        <p><label for="id_weight">Weight:</label> <input type="number" name="weight" value="85.0" step="any" id="id_weight" /></p>
+        <p><label for="id_fat">Fat:</label> <input type="number" name="fat" value="30.0" step="any" id="id_fat" /></p>
+        <p><label for="id_muscle">Muscle:</label> <input type="number" name="muscle" value="20.0" step="any" id="id_muscle" /></p>
+        <p><label for="id_bone">Bone:</label> <input type="number" name="bone" value="20.0" step="any" id="id_bone" /></p>
+        <p><label for="id_water">Water:</label> <input type="number" name="water" value="20.0" step="any" id="id_water" /></p>
+        <button type="submit" class="save btn btn-secondary">Save</button>
+    </form>
+</div>
+</body>
+</html>
+{% endblock %}
