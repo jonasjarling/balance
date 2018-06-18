@@ -30,32 +30,32 @@ SVFBalance | Modify Profile
             <tr>
                 <td><label for="id_height">Height:</label></td>
                 <td><span class="border-right">&nbsp</span></td>
-                <td><input type="number" name="height" value="167" id="id_height" /></td>
+                <td><input type="number" name="height" value="{{ profile.height }}" id="id_height" /></td>
             </tr>
             <tr>
                 <td><label for="id_weight">Weight:</label></td>
                 <td><span class="border-right">&nbsp</span></td>
-                <td><input type="number" name="weight" value="85.0" step="any" id="id_weight" /></td>
+                <td><input type="number" name="weight" value="{{ profile.weight }}" step="any" id="id_weight" /></td>
             </tr>
             <tr>
                 <td><label for="id_fat">Fat:</label></td>
                 <td><span class="border-right">&nbsp</span></td>
-                <td><input type="number" name="fat" value="30.0" step="any" id="id_fat" /></td>
+                <td><input type="number" name="fat" value="{{ profile.fat }}" step="any" id="id_fat" /></td>
             </tr>
             <tr>
                 <td><label for="id_muscle">Muscle:</label></td>
                 <td><span class="border-right">&nbsp</span></td>
-                <td><input type="number" name="muscle" value="20.0" step="any" id="id_muscle" /></td>
+                <td><input type="number" name="muscle" value="{{ profile.muscle }}" step="any" id="id_muscle" /></td>
             </tr>
             <tr>
                 <td><label for="id_bone">Bone:</label></td>
                 <td><span class="border-right">&nbsp</span></td>
-                <td><input type="number" name="bone" value="20.0" step="any" id="id_bone" /></td>
+                <td><input type="number" name="bone" value="{{ profile.bone }}" step="any" id="id_bone" /></td>
             </tr>
             <tr>
                 <td><label for="id_water">Water:</label></td>
                 <td><span class="border-right">&nbsp</span></td>
-                <td><input type="number" name="water" value="20.0" step="any" id="id_water" /></td>
+                <td><input type="number" name="water" value="{{ profile.water }}" step="any" id="id_water" /></td>
             </tr>
             <tr>
                 <td><button type="submit" class="save btn btn-secondary">Save</button></td>
