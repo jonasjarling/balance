@@ -12,10 +12,10 @@ SVFBalance | Profile
     <span style="text-align: center"><h3>{{ context.first_name }} {{ context.last_name }}</h3></span>
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-2" align="center">
-                <img src="{{ context.picture }}" width="100px" height="100px"><br>
-                <button class="button btn-primary"><i class="fas fa-envelope"></i></button>
-                <button class="button btn-warning"><i class="fas fa-edit"></i></button>
-                <button class="button btn-danger"><i class="fas fa-trash-alt"></i></button>
+                <img src="{{ context.picture }}" width="100px" height="100px" alt="Profile Image"><br>
+                <a class="button btn-primary" ><i class="fas fa-envelope"></i></a>
+                <a class="btn btn-warning" href="{% url 'modify' %}"><i class="fas fa-edit"></i></a>
+                <a class="button btn-danger" ><i class="fas fa-trash-alt"></i></a>
             </div>
             <div class="col-sm-12 col-md-8 col-lg-10">
                 <table class="table table-user-information">
@@ -62,10 +62,13 @@ SVFBalance | Profile
                     <td> </td>
                 </tr>
             </table>
-            <hr>
+        </div>
+        <div class="row">
             <h5>Ziel:</h5><br>
             {{ context.goal }}
-            <hr>
+        </div>
+        <div class="btn {% block modifyProfileActive %}{% endblock %}">
+                <a class="btn btn-secondary" href="{% url 'modify' %}">Daten anpassen</a>
         </div>
     </div>
 

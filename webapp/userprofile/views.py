@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+import datetime
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 from .models import Profile, Weight, BodyStats
+from .forms import WeightForm, ProfileForm
 
 @login_required
 def userprofile(request):
@@ -35,3 +37,40 @@ def get_bodystats(request, *args, **kwargs):
     return JsonResponse({"data":data})
 
 
+@login_required
+def modify_profile(request):
+    #new_val = Weight() #.objects.filter(user=request.user).order_by('-date').first()
+
+    profile = Profile.objects.get(user=request.user)
+    new_weight = Weight()
+    new_bodystats = BodyStats()
+
+
+    if request.method == "POST":
+        profileform = ProfileForm(request.POST, instance=profile)
+
+        if profileform.is_valid():
+            #new_val = form.save(commit=False)
+            new_weight.user = request.user
+            new_weight.date = datetime.date.today()
+            new_weight.weight = profileform.weight
+            new_weight.save()
+
+            new_bodystats.user = request.user
+            new_bodystats.date = datetime.date.today()
+            new_bodystats.bone = profileform.bone
+            new_bodystats.muscle = profileform.muscle
+            new_bodystats.water = profileform.water
+            new_bodystats.fat = profileform.fat
+            new_bodystats.bmi = profileform.weight/(profileform.height*profileform.height)
+            new_bodystats.save()
+
+            profile = profileform.save(commit=False)
+            profile.bmi = profileform.weight/(profileform.height*profileform.height)
+            profile.save()
+            return redirect('profile')
+
+    else:
+        profileform = ProfileForm(instance=profile)
+        print(profileform.as_p())
+    return render(request, 'userprofile/modifyProfile.html', {"profileform": profileform})

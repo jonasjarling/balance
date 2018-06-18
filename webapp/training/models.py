@@ -48,6 +48,7 @@ class Workout(models.Model):
     createdBy = models.CharField(max_length=50, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     routine = models.ManyToManyField(Routine, blank=True, null=True)
+    progress = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
@@ -57,5 +58,6 @@ class Workout(models.Model):
             "name": self.name,
             "createdBy": self.createdBy,
             "user": self.user,
-            "routine": self.routine.values()
+            "routine": self.routine.values(),
+            "progress": self.progress
         }

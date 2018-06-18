@@ -1,20 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, _get_queryset
 from django.http import HttpResponse
 from django.template import loader, Context, Template
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
-from django.core import serializers
+from .forms import WorkoutForm, RoutineForm
+
 #importing own classes
 from .models import Equipment, Routine, Workout, User
 
 @login_required
 def index(request):
     #context = [obj.get_context() for obj in Routine.objects.all()]
-    try:
-        workout = Workout.objects.get(user=request.user).as_dict()
-    except:
-        print("no workout for user")
-        return render(request, 'main/index.html')
+    workout = Workout.objects.get(user=request.user).as_dict()
+
     routines = Routine.objects.get_queryset().filter(workout__user=request.user)
     routine = {}
     for obj in routines:
@@ -31,32 +29,6 @@ def index(request):
             "equipment": equipment.values()
         }
     )
-
-
-@login_required
-def getdata(request):
-    try:
-        workout = Workout.objects.get(user=request.user).as_dict()
-    except:
-        print("no workout for user")
-        return render(request, 'main/index.html')
-    routines = Routine.objects.get_queryset().filter(workout__user=request.user)
-    routine = {}
-    for obj in routines:
-        routine[obj] = obj.as_dict()
-
-    equipment = Equipment.objects.filter(routine__workout__user=request.user).values()
-
-    results = {
-        "workout": workout,
-        "routine": routine.values(),
-        "equipment": equipment.values()
-    }
-
-    jsondata = serializers.serialize('json', results)
-    return HttpResponse(jsondata)
-
-
 
 def plan(request, plan_id):
 
