@@ -5,7 +5,6 @@ self.addEventListener('install', function(event) {
     caches.open(staticCacheName).then(function(cache) {
       return cache.addAll([
         '/base_layout',
-          '/training/'
       ]);
     })
   );
@@ -19,10 +18,6 @@ self.addEventListener('fetch', function(event){
             if (requestURL.pathname === '/') {
                 console.log('base');
                 return caches.match('base_layout');
-            }else
-            if (requestURL.pathname === 'training/'){
-                console.log('training');
-                return caches.match('training');
             }
         })
     );

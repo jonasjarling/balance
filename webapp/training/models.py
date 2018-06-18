@@ -47,7 +47,7 @@ class Workout(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     createdBy = models.CharField(max_length=50, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
-    routine = models.ManyToManyField(Routine, blank=True, null=True)
+    routine = models.ManyToManyField(Routine, blank=True)
     progress = models.IntegerField(default=0)
 
     def __str__(self):
