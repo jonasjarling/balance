@@ -1,61 +1,48 @@
 {% extends 'main/baseDoubleNav.html' %}
 {%  load static %}
 {% block title %}
-SVFBalance | Modify Profile
+SVFBalance | Profile
 {% endblock %}
 
-{%  block modifyProfileActive %} active {%  endblock %}
+{%  block adminpushActive %} active {%  endblock %}
 
 {% block body %}
-<head>
-</head>
 <body>
 <div class="container">
-    <span><h3>Editierbare Werte</h3></span>
+    <span><h3>Platzhalter</h3></span>
     <form action="" method="POST" class="weight-form">
         {% csrf_token %}
         <br>
-        <img src="{{ profile.picture }}" alt="Profile Pic">
         <table class="table">
-            <tr>
-                <td><p><label for="id_picture">Picture:</label></td>
-                <td><span class="border-right">&nbsp</span></td>
-                <td><a href="{{ profile.picture }}">Currently</a>
-            </tr>
-            <tr>
-                <td>Change Picture:</td>
-                <td><span class="border-right">&nbsp</span></td>
-                <td><input type="file" name="picture" id="id_picture" /></td>
-            </tr>
             <tr>
                 <td><label for="id_height">Height:</label></td>
                 <td><span class="border-right">&nbsp</span></td>
-                <td><input type="number" name="height" value="{{ profile.height }}" id="id_height" /></td>
+                <td><input type="number" name="height" value="{{ forms.height }}" id="id_height" /></td>
             </tr>
             <tr>
                 <td><label for="id_weight">Weight:</label></td>
                 <td><span class="border-right">&nbsp</span></td>
-                <td><input type="number" name="weight" value="{{ profile.weight }}" step="any" id="id_weight" /></td>
+                <td><input type="number" name="weight" value="{{ forms.weight }}" step="any" id="id_weight" /></td>
             </tr>
             <tr>
                 <td><label for="id_fat">Fat:</label></td>
                 <td><span class="border-right">&nbsp</span></td>
-                <td><input type="number" name="fat" value="{{ profile.fat }}" step="any" id="id_fat" /></td>
+                <td><input type="number" name="fat" value="{{ forms.fat }}" step="any" id="id_fat" /></td>
             </tr>
             <tr>
                 <td><label for="id_muscle">Muscle:</label></td>
                 <td><span class="border-right">&nbsp</span></td>
-                <td><input type="number" name="muscle" value="{{ profile.muscle }}" step="any" id="id_muscle" /></td>
+                <td><input type="number" name="muscle" value="{{ forms.muscle }}" step="any" id="id_muscle" /></td>
             </tr>
             <tr>
                 <td><label for="id_bone">Bone:</label></td>
                 <td><span class="border-right">&nbsp</span></td>
-                <td><input type="number" name="bone" value="{{ profile.bone }}" step="any" id="id_bone" /></td>
+                <td><input type="number" name="bone" value="{{ forms.bone }}" step="any" id="id_bone" /></td>
             </tr>
             <tr>
                 <td><label for="id_water">Water:</label></td>
                 <td><span class="border-right">&nbsp</span></td>
-                <td><input type="number" name="water" value="{{ profile.water }}" step="any" id="id_water" /></td>
+                <td><input type="number" name="water" value="{{ forms.water }}" step="any" id="id_water" /></td>
             </tr>
             <tr>
                 <td><button type="submit" class="save btn btn-secondary">Save</button></td>

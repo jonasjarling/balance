@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect, render_to_response, get_object_or_404
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.http import JsonResponse
 import datetime
 
 from django.http import HttpResponse, HttpResponseRedirect
 
 from .models import Profile, Weight, BodyStats
-from .forms import WeightForm, ProfileForm
+from .forms import WeightForm, ProfileForm, WaageForms
 
 @login_required
 def userprofile(request):
@@ -36,6 +37,19 @@ def get_bodystats(request, *args, **kwargs):
     print(data)
     return JsonResponse({"data":data})
 
+@staff_member_required
+def admin_update_profile(request):
+    profile = Profile.objects.get(user=request)
+    if request.method == "POST":
+        forms ={}
+    else:
+        forms = WaageForms()
+    return render(request, 'userprofile/adminpush.html', {"forms": forms})
+
+def get_balance_values(request, *args, **kwargs):
+    if args == "user":
+        profile = Profile.objects.get(user=args)
+
 
 @login_required
 def modify_profile(request):
@@ -53,7 +67,7 @@ def modify_profile(request):
             print(profileform)
             #new_val = form.save(commit=False)
             profile = profileform.save(commit=False)
-            profile.bmi = profile.weight/(profile.height*profile.height)
+            profile.bmi = profile.weight/(profile.height*0.01*profile.height*0.01)
             profile.save()
 
             new_profile_val = Profile.objects.get(user=request.user).as_dict()

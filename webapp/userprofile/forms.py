@@ -14,3 +14,7 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = ('picture', 'height', 'weight', 'fat', 'muscle', 'bone', 'water',)
 
+class WaageForms(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('height', 'weight', 'fat', 'muscle', 'bone', 'water',)

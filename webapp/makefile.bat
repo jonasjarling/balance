@@ -12,9 +12,6 @@ python manage.py migrate userprofile
 python manage.py makemigrations main
 python manage.py migrate main
 
-python manage.py makemigrations statistic
-python manage.py migrate statistic
-
 python manage.py runserver
 
 echo End batch script
