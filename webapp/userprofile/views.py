@@ -50,27 +50,31 @@ def modify_profile(request):
         profileform = ProfileForm(request.POST, instance=profile)
 
         if profileform.is_valid():
+            print(profileform)
             #new_val = form.save(commit=False)
+            profile = profileform.save(commit=False)
+            profile.bmi = profile.weight/(profile.height*profile.height)
+            profile.save()
+
+            new_profile_val = Profile.objects.get(user=request.user).as_dict()
+
             new_weight.user = request.user
             new_weight.date = datetime.date.today()
-            new_weight.weight = profileform.weight
+            new_weight.weight = profile.weight
             new_weight.save()
 
             new_bodystats.user = request.user
             new_bodystats.date = datetime.date.today()
-            new_bodystats.bone = profileform.bone
-            new_bodystats.muscle = profileform.muscle
-            new_bodystats.water = profileform.water
-            new_bodystats.fat = profileform.fat
-            new_bodystats.bmi = profileform.weight/(profileform.height*profileform.height)
+            new_bodystats.bone = profile.bone
+            new_bodystats.muscle = profile.muscle
+            new_bodystats.water = profile.water
+            new_bodystats.fat = profile.fat
+            new_bodystats.bmi = profile.weight/(profile.height*profile.height)
             new_bodystats.save()
-
-            profile = profileform.save(commit=False)
-            profile.bmi = profileform.weight/(profileform.height*profileform.height)
-            profile.save()
             return redirect('profile')
 
     else:
         profileform = ProfileForm(instance=profile)
-        print(profileform.as_p())
-    return render(request, 'userprofile/modifyProfile.html', {"profileform": profileform})
+        profileform.picture = profile.picture
+        print(profileform.picture)
+    return render(request, 'userprofile/modifyProfile.html', {"profileform": profileform, "profile": profile})
