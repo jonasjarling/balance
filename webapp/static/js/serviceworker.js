@@ -14,7 +14,7 @@ self.addEventListener('install', function(event) {
 self.addEventListener('fetch', function(event){
     event.respondWith(
         fetch(event.request).catch(function(){
-            var requestURL = new URL(event.request.url)
+            var requestURL = new URL(event.request.url);
             console.log('fetching' + event.request.url);
             if (requestURL.pathname === '/') {
                 console.log('base');
@@ -27,18 +27,3 @@ self.addEventListener('fetch', function(event){
         })
     );
 });
-
-/*self.addEventListener('fetch', function(event){
-    var requestURL = new URL(event.request.url);
-        if (requestURL.origin === location.origin){
-            if((requestURL.pathname === '/')) {
-                event.respondWith(caches.match('base_layout'));
-                return;
-            }
-        }
-    event.respondWith(
-        caches.match(event.request).then(function(response){
-            return response || fetch(event.request);
-        })
-    );
-}); */

@@ -161,12 +161,18 @@ PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js'
 
 PWA_APP_NAME = 'SVF Fitness App'
 PWA_APP_DESCRIPTION = "Fitness Webapp des Sportverein Fellbach"
-PWA_APP_THEME_COLOR = '#0A0302'
+PWA_APP_THEME_COLOR = '#9b9699'
 PWA_APP_DISPLAY = 'fullscreen'#fullscreen, standalone, browser
 PWA_APP_START_URL = '/'
 PWA_APP_ICONS = [
     {
+       'src': '/static/images/logo-512.png',
+       'sizes': '512x512'
+    }, {
         'src': '/static/images/logo-320.png',
         'sizes': '320x320'
+    }, {
+       'src': '/static/images/logo-192.png',
+       'sizes': '192x192'
     }
 ]
