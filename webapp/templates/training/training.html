@@ -5,21 +5,23 @@ SVFBalance | Training
 {% endblock %}
 
 {%  block trainingActive %} active {%  endblock %}
-
+{% block head %}
+    {% load pwa %}
+    {% progressive_web_app_meta %}
+{% endblock %}
 {% block body %}
 
+
     <div class="container">
-    <br>
-        <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-    <br>
         <div class="row">
             {%  for item in routine %}
                 <div class="card" style="width: 18rem; margin: 0.4rem">
-                    <img class="card-img-top" src="{{ item.picture }}" alt="Activity image">
+                    <img class="card-img-top" src="{{ item.picture }}" alt="Activity image" width="100%" height="200rem">
                 <div class="card-body">
                     <h5 class="card-title">{{ item.name }}</h5>
+                    <!-- hat keine auswirkung ???
+                    <p class="card-text">DEPP {{ information }}</p>
+                    -->
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Equipment: {{ item.equipment }}</li>
@@ -27,25 +29,12 @@ SVFBalance | Training
                     <li class="list-group-item">Setup: {{ item.setup }}</li>
                     <li class="list-group-item">Sets: {{ item.sets }}</li>
                     <li class="list-group-item">Repetitions: {{ item.reps }}</li>
-                    <li class="list-group-item">
-                        <form action="" method="DELETE">
-                            <button name="closed_routine" type="button" class="btn btn-secondary">
-                                Abgeschlossen
-                            </button>
-                        </form>
-                    </li>
                 </ul>
                 </div>
 
             {%  endfor %}
         </div>
-        <div class="row">
-            <div class="col" align="center">
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#newTraining">
-                    Training abgeschlossen
-                </button>
-            </div>
-        </div>
+
     </div>
 
     <!-- Modals not working -->
