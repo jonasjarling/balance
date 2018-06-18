@@ -7,8 +7,9 @@ SVFBalance | Profile
 {%  block profileActive %} active {%  endblock %}
 
 {% block body %}
-<br>
+
     <div class="container">
+        <span class="badge badge-danger" style="alignment: center; font-size: 25px">{{ context.error }}</span>
     <span style="text-align: center"><h3>{{ context.first_name }} {{ context.last_name }}</h3></span>
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-2" align="center">

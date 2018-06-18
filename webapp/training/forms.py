@@ -5,7 +5,7 @@ class WorkoutForm(forms.ModelForm):
 
     class Meta:
         model = Workout
-        fields = ("name", "progress",)
+        fields = ("name",)
 
 class RoutineForm(forms.ModelForm):
 
