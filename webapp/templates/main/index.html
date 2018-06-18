@@ -13,8 +13,10 @@ SVFBalance | Startseite
 {% block body %}
     <div class="container">
     {% if user.is_authenticated %}
-        <p>Hallo {{ user.username }}. Du hast dich zuletzt am {{ user.last_login.date }} um {{ user.last_login.time }} eingeloggt.</p>
+        {% if user.first_name %}
+        <p>Hallo {{ user.first_name }}. Du hast dich zuletzt am {{ user.last_login.date }} um {{ user.last_login.time }} eingeloggt.</p>
         <hr>
+            {% endif %}
     {% else %}
         <div class="jumbotron" style="padding: 2rem">
         <h1 class="display-4">Herzlich Willkommen!</h1>
