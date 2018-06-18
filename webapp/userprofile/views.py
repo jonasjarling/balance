@@ -39,12 +39,11 @@ def get_bodystats(request, *args, **kwargs):
 
 @staff_member_required
 def admin_update_profile(request):
-    profile = Profile.objects.get(user=request)
+    profile = Profile.objects.get(user=request.userprofile)
     if request.method == "POST":
-        forms ={}
-    else:
-        forms = WaageForms()
-    return render(request, 'userprofile/adminpush.html', {"forms": forms})
+        form = ProfileForm(request.POST, instance=profile)
+        form.save()
+    return render(request, 'userprofile/adminpush.html', {"forms": form})
 
 def get_balance_values(request, *args, **kwargs):
     if args == "user":
