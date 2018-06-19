@@ -39,10 +39,19 @@ def get_bodystats(request, *args, **kwargs):
 
 @staff_member_required
 def admin_update_profile(request):
-    profile = Profile.objects.get(user=request.userprofile)
+    print("entered request methode in view")
+    profile = Profile.objects.get(user=request.user)
     if request.method == "POST":
-        form = ProfileForm(request.POST, instance=profile)
-        form.save()
+        form = {}
+        if form.is_valid():
+            print(form)
+            #new_val = form.save(commit=False)
+            profile = form.save(commit=False)
+            profile.bmi = profile.weight/(profile.height*0.01*profile.height*0.01)
+            profile.save()
+            return redirect('profile')
+    else:
+        form = WaageForms()
     return render(request, 'userprofile/adminpush.html', {"forms": form})
 
 def get_balance_values(request, *args, **kwargs):
