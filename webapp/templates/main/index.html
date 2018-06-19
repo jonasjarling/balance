@@ -14,7 +14,7 @@ SVFBalance | Startseite
     <div class="container">
     {% if user.is_authenticated %}
         {% if user.first_name %}
-        <p>Hallo {{ user.first_name }}. Du hast dich zuletzt am {{ user.last_login.date }} um {{ user.last_login.time }} eingeloggt.</p>
+        <p>Hallo {{ user.first_name }}. Du hast dich zuletzt am {{ user.last_login.date }} um {{ user.last_login.time }} Uhr eingeloggt.</p>
         <hr>
             {% endif %}
     {% else %}
