@@ -61,10 +61,12 @@ SVFBalance | Profile
                 </tr>
             </table>
         </div>
+    <hr>
         <div class="row">
             <h5>Ziel:</h5><br>
             {{ context.goal }}
         </div>
+    <hr>
         <div class="btn {% block modifyProfileActive %}{% endblock %}">
                 <a class="btn btn-secondary" href="{% url 'modify' %}">Daten anpassen</a>
         </div>
